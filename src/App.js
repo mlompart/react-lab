@@ -1,18 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
-
+import { useState } from 'react';
 function App() {
-  let title = 'Wall-E'
+
+  const [title, setTitle] = useState('Wall-E');
 
   function handleChange(event) {
-    title = event.target.value;
-}
+      setTitle(event.target.value);
+  }
+  let messege;
+  if(title.length < 5)
+  {
+    messege = "tytuł jest za krótki";
+  }
+  else if(title.length < 15)
+  {
+    messege= "tytuł jest extra";
+  }
+  else{
+    messege = "tytuł jest za długi";
+  }
 
   return (
     <div>
       <h1>My favourite movies for today</h1>
       <h2>My favourite movies for today is {title}</h2>
-      <input type="text" onChange={handleChange}/>
+      {title.length > 0 && <div>{messege}</div>}
+      <input type="text" value={title} onChange={handleChange}/>
     </div>
   );
 }
