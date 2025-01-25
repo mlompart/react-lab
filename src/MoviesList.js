@@ -1,6 +1,6 @@
 import React from "react";
 
-function MoviesList( movies ) {
+function MoviesList({ movies }) {
     return (
         <div>
             <h2>Movies List</h2>
